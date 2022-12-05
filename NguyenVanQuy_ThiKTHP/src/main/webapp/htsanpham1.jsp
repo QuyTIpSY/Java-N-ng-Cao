@@ -8,29 +8,11 @@
 <html>
 <head>
 <style >
-	.header-top{
-		display: flex; 
-		justify-content: space-between; 
-		margin-top: 10px;
-		margin-bottom: 10px;
-		align-items: center;
-	}
-	
 	hr{
 		margin-top: 5px !important;
 	    margin-bottom: 15px !important;
 	    border: 0;
 	    border-top: 1px solid #DDD !important;
-	}
-	
-	td>div{
-		height: 300px;
-		display: flex;
-		align-items: center;
-	}
-	
-	table{
-		width: 100%
 	}
 	
 	#sidebar{
@@ -42,31 +24,18 @@
 	    justify-content: space-evenly;;
 	}
 	
-	
-	
 	.box-title{
 		background-color: #E01931; 
 		color: white; 
 		font-weight: bold; 
 		height: 50px;
 		display: flex;
-		justify-content: space-between;
-		background: #FFFFF7
 	}
 	
 	.content-left{
 		display: flex;
 	    flex-wrap: wrap;
 	    align-content: center;	
-	    background: #E01931; 
-	    padding-right: 15px
-	}
-	
-	.content-right{
-		font-weight: bold; 
-		font-size: 16px; 
-		display: flex; 
-		align-items: center;
 	}
 	
 	#content-mid-box{
@@ -88,10 +57,10 @@
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
 </head>
 </head>
-<body style="background: ghostwhite;">
+<body>
 	<div id="wrapper" style="background-color: ghostwhite">
 		<div id="header" class="outer header-main">
-			<div class="header-top">
+			<div class="header-top" style="display: flex; justify-content: space-between; margin-top: 10px; margin-bottom: 10px;" >
 				<div class="logo">
 					<a href="#"><img src="Images/logo.jpg" width="200" ></a>	
 				</div>
@@ -116,14 +85,14 @@
 					
 					</div>
 					<div class="tmp" style="margin-right: 20px;">
-						<img src="Images/top2.png" width="40" style="background-color: #44BBFF">
+						<a href="#"><img src="Images/top2.png" width="40" style="background-color: #44BBFF"></a>
 						<div class="tmp1">
 							<span>MUA HÀNG</span>	
 							<span>ONLINE</span>	
 						</div>			
 					</div>
 					<div class="tmp" >
-						<img src="Images/top3.png" width="40" style="background-color: #44BBFF">
+						<a href="#"><img src="Images/top3.png" width="40" style="background-color: #44BBFF"></a>	
 						<div class="tmp1">
 							<span style="color: red; font-weight: bold">0123 456 789</span>	
 							<span style="color: red; font-weight: bold">0123 789 456</span>	
@@ -157,7 +126,6 @@
 					<table class="tbl">
 						<tr >
 							<%ArrayList<loaibean> dsloai=(ArrayList<loaibean>)request.getAttribute("dsloai"); 
-							long ip=0, ipwifi=0, ipai=0, fullcolor=0, daughi=0;
 							for(loaibean ds: dsloai){%>
 								<img style="margin-right: 10px;" src="<%=ds.getanh() %>">
 								<a href="#"><%=ds.getTenloai() %></a><hr>
@@ -167,20 +135,20 @@
 				</div>	
 				
 				<div>
-					<a href="#"><img src="Images/banner.jpg"></a> 
+					<img alt="" src="Images/banner.jpg">
 				</div>
 			</div>
 			
 			<div id="content-mid">
 				<div id="content-mid-box">
-					<div class="box-title">
-						<div class="content-left">
+					<div class="box-title" >
+						<div class="content-left" >
 							<img src="Images/cameraip.png">
 							CAMERA IP J-TECH
 						</div>
-						<div class="content-right">
-							<a href="#">Xem tất cả sản phẩm ➨</a>
-						</div>
+	<!-- 					<div class="content-right"> -->
+	<!-- 						<a href="#">Xem tất cả sản phẩm</a> -->
+	<!-- 					</div> -->
 					</div>
 					
 					<div class="box-content">
@@ -196,9 +164,9 @@
 									<td >
 										<div style="background-color: white; border: 1px solid #E7E7DE">
 											<div>
-												<a href="chitietsanphamController?msp=<%=sp.getMasanpham()%>"><img width="200px" src="<%=sp.getAnh() %>"></a><br>	
-												<a style="text-decoration: none;" href="chitietsanphamController?msp=<%=sp.getMasanpham()%>"><div style="width: 200px; padding-left: 5px"><%=sp.getTensanpham() %></div></a> <br>
-												<div style="width: 200px; padding-left: 5px; font-weight: bold; color: red;">Giá: <%=sp.getGia() %> VNĐ</div>
+												<img width="200px" src="<%=sp.getAnh() %>"><br>	
+												<div style="width: 200px"><%=sp.getTensanpham() %></div>
+												<div style="width: 200px">Gia: <%=sp.getGia() %></div>
 											</div>
 										</div>
 									</td>
@@ -209,21 +177,7 @@
 										<div style="background-color: white; border: 1px solid #E7E7DE">
 											<div>
 												<img width="200px" src="<%=sp.getAnh() %>"><br>	
-												<div style="width: 200px"><%=sp.getTensanpham() %></div> <br>
-												<div style="width: 200px">Giá: <%=sp.getGia() %></div>											
-											</div>
-										</div>
-									</td>
-					      	 		<%} %>
-					      	 		<%i++;
-					      	 		  if(i<n){
-					      	 			sp=dssp.get(i); flag++;%>
-					      	 		<td >
-										<div style="background-color: white; border: 1px solid #E7E7DE">
-											<div>
-												<img width="200px" src="<%=sp.getAnh() %>"><br>	
-												<div style="width: 200px"><%=sp.getTensanpham() %></div> <br>
-												<div style="width: 200px">Giá: <%=sp.getGia() %></div>
+												<div style="width: 200px"><%=sp.getTensanpham() %></div>
 											
 											</div>
 										</div>
@@ -236,8 +190,7 @@
 										<div style="background-color: white; border: 1px solid #E7E7DE">
 											<div>
 												<img width="200px" src="<%=sp.getAnh() %>"><br>	
-												<div style="width: 200px"><%=sp.getTensanpham() %></div> <br>
-												<div style="width: 200px">Giá: <%=sp.getGia() %></div>
+												<div style="width: 200px"><%=sp.getTensanpham() %></div>
 											
 											</div>
 										</div>
@@ -250,8 +203,20 @@
 										<div style="background-color: white; border: 1px solid #E7E7DE">
 											<div>
 												<img width="200px" src="<%=sp.getAnh() %>"><br>	
-												<div style="width: 200px"><%=sp.getTensanpham() %></div> <br>
-												<div style="width: 200px">Giá: <%=sp.getGia() %></div>
+												<div style="width: 200px"><%=sp.getTensanpham() %></div>
+											
+											</div>
+										</div>
+									</td>
+					      	 		<%} %>
+					      	 		<%i++;
+					      	 		  if(i<n){
+					      	 			sp=dssp.get(i); flag++;%>
+					      	 		<td >
+										<div style="background-color: white; border: 1px solid #E7E7DE">
+											<div>
+												<img width="200px" src="<%=sp.getAnh() %>"><br>	
+												<div style="width: 200px"><%=sp.getTensanpham() %></div>
 												
 											</div>
 										</div>
@@ -264,21 +229,21 @@
 				</div>
 				
 				<div id="content-mid-box">
-					<div class="box-title">
-						<div class="content-left">
+					<div class="box-title" style="background-color: #E01931; color: white; font-weight: bold; height: 50px;">
+						<div class="content-left" style="flex-wrap: wrap; align-content: center">
 							<img src="Images/cameraip.png">
 							CAMERA IP WIFI J-TECH
 						</div>
-						<div class="content-right">
-							<a href="#">Xem tất cả sản phẩm ➨</a>
-						</div>
+	<!-- 					<div class="content-right"> -->
+	<!-- 						<a href="#">Xem tất cả sản phẩm</a> -->
+	<!-- 					</div> -->
 					</div>
 					
 					<div class="box-content">
 						<table class="tbl">
 							<% flag=0;
 							for(int i=0;i<n;i++){
-								if(flag==10) break;
+								if(flag==12) break;
 								sanphambean sp=dssp.get(i);
 								if(sp.getMaloai().equals("cameraipwifi")){ flag++;%>
 								<tr>
@@ -286,8 +251,7 @@
 										<div style="background-color: white; border: 1px solid #E7E7DE">
 											<div>
 												<img width="200px" src="<%=sp.getAnh() %>"><br>	
-												<div style="width: 200px"><%=sp.getTensanpham() %></div> <br>
-												<div style="width: 200px">Giá: <%=sp.getGia() %></div>
+												<div style="width: 200px"><%=sp.getTensanpham() %></div>
 											</div>
 										</div>
 									</td>
@@ -298,8 +262,7 @@
 										<div style="background-color: white; border: 1px solid #E7E7DE">
 											<div>
 												<img width="200px" src="<%=sp.getAnh() %>"><br>	
-												<div style="width: 200px"><%=sp.getTensanpham() %></div> <br>
-												<div style="width: 200px">Giá: <%=sp.getGia() %></div>
+												<div style="width: 200px"><%=sp.getTensanpham() %></div>
 											</div>
 										</div>
 									</td>
@@ -311,8 +274,7 @@
 										<div style="background-color: white; border: 1px solid #E7E7DE">
 											<div>
 												<img width="200px" src="<%=sp.getAnh() %>"><br>	
-												<div style="width: 200px"><%=sp.getTensanpham() %></div> <br>
-												<div style="width: 200px">Giá: <%=sp.getGia() %></div>
+												<div style="width: 200px"><%=sp.getTensanpham() %></div>
 											</div>
 										</div>
 									</td>
@@ -324,8 +286,7 @@
 										<div style="background-color: white; border: 1px solid #E7E7DE">
 											<div>
 												<img width="200px" src="<%=sp.getAnh() %>"><br>	
-												<div style="width: 200px"><%=sp.getTensanpham() %></div> <br>
-												<div style="width: 200px">Giá: <%=sp.getGia() %></div>
+												<div style="width: 200px"><%=sp.getTensanpham() %></div>
 											</div>
 										</div>
 									</td>
@@ -337,12 +298,23 @@
 										<div style="background-color: white; border: 1px solid #E7E7DE">
 											<div>
 												<img width="200px" src="<%=sp.getAnh() %>"><br>	
-												<div style="width: 200px"><%=sp.getTensanpham() %></div> <br>
-												<div style="width: 200px">Giá: <%=sp.getGia() %></div>
+												<div style="width: 200px"><%=sp.getTensanpham() %></div>
 											</div>
 										</div>
 									</td>
-					      	 		<%} %>				      	 		
+					      	 		<%} %>
+					      	 		<%i++;
+					      	 		  if(i<n){
+					      	 			sp=dssp.get(i); flag++;%>
+					      	 		<td >
+										<div style="background-color: white; border: 1px solid #E7E7DE">
+											<div>
+												<img width="200px" src="<%=sp.getAnh() %>"><br>	
+												<div style="width: 200px"><%=sp.getTensanpham() %></div>
+											</div>
+										</div>
+									</td>
+					      	 		<%} %>
 								</tr>
 							<%}} %>
 						</table>
@@ -350,21 +322,21 @@
 				</div>
 				
 				<div id="content-mid-box">
-					<div class="box-title">
-						<div class="content-left" >
+					<div class="box-title" style="background-color: #E01931; color: white; font-weight: bold; height: 50px;">
+						<div class="content-left" style="flex-wrap: wrap; align-content: center">
 							<img src="Images/cameraip.png">
 							CAMERA IP AI J-TECH
 						</div>
-						<div class="content-right">
-							<a href="#">Xem tất cả sản phẩm ➨</a>
-						</div>
+	<!-- 					<div class="content-right"> -->
+	<!-- 						<a href="#">Xem tất cả sản phẩm</a> -->
+	<!-- 					</div> -->
 					</div>
 					
 					<div class="box-content">
 						<table class="tbl">
 							<% flag=0;
 							for(int i=0;i<n;i++){
-								if(flag==10) break;
+								if(flag==12) break;
 								sanphambean sp=dssp.get(i);
 								if(sp.getMaloai().equals("cameraipai")){ flag++;%>
 								<tr>
@@ -372,8 +344,7 @@
 										<div style="background-color: white; border: 1px solid #E7E7DE">
 											<div>
 												<img width="200px" src="<%=sp.getAnh() %>"><br>	
-												<div style="width: 200px"><%=sp.getTensanpham() %></div> <br>
-												<div style="width: 200px">Giá: <%=sp.getGia() %></div>
+												<div style="width: 200px"><%=sp.getTensanpham() %></div>
 											</div>
 										</div>
 									</td>
@@ -384,8 +355,7 @@
 										<div style="background-color: white; border: 1px solid #E7E7DE">
 											<div>
 												<img width="200px" src="<%=sp.getAnh() %>"><br>	
-												<div style="width: 200px"><%=sp.getTensanpham() %></div> <br>
-												<div style="width: 200px">Giá: <%=sp.getGia() %></div>
+												<div style="width: 200px"><%=sp.getTensanpham() %></div>
 											</div>
 										</div>
 									</td>
@@ -397,8 +367,7 @@
 										<div style="background-color: white; border: 1px solid #E7E7DE">
 											<div>
 												<img width="200px" src="<%=sp.getAnh() %>"><br>	
-												<div style="width: 200px"><%=sp.getTensanpham() %></div> <br>
-												<div style="width: 200px">Giá: <%=sp.getGia() %></div>
+												<div style="width: 200px"><%=sp.getTensanpham() %></div>
 											</div>
 										</div>
 									</td>
@@ -410,8 +379,7 @@
 										<div style="background-color: white; border: 1px solid #E7E7DE">
 											<div>
 												<img width="200px" src="<%=sp.getAnh() %>"><br>	
-												<div style="width: 200px"><%=sp.getTensanpham() %></div> <br>
-												<div style="width: 200px">Giá: <%=sp.getGia() %></div>
+												<div style="width: 200px"><%=sp.getTensanpham() %></div>
 											</div>
 										</div>
 									</td>
@@ -423,8 +391,19 @@
 										<div style="background-color: white; border: 1px solid #E7E7DE">
 											<div>
 												<img width="200px" src="<%=sp.getAnh() %>"><br>	
-												<div style="width: 200px"><%=sp.getTensanpham() %></div> <br>
-												<div style="width: 200px">Giá: <%=sp.getGia() %></div>
+												<div style="width: 200px"><%=sp.getTensanpham() %></div>
+											</div>
+										</div>
+									</td>
+					      	 		<%} %>
+					      	 		<%i++;
+					      	 		  if(i<n){
+					      	 			sp=dssp.get(i); flag++;%>
+					      	 		<td >
+										<div style="background-color: white; border: 1px solid #E7E7DE">
+											<div>
+												<img width="200px" src="<%=sp.getAnh() %>"><br>	
+												<div style="width: 200px"><%=sp.getTensanpham() %></div>
 											</div>
 										</div>
 									</td>
@@ -436,21 +415,21 @@
 				</div>
 				
 				<div id="content-mid-box">
-					<div class="box-title" >
-						<div class="content-left" >
+					<div class="box-title" style="background-color: #E01931; color: white; font-weight: bold; height: 50px;">
+						<div class="content-left" style="flex-wrap: wrap; align-content: center">
 							<img src="Images/cameraip.png">
 							CAMERA FULL COLOR J-TECH
 						</div>
-						<div class="content-right">
-							<a href="#">Xem tất cả sản phẩm ➨</a>
-						</div>
+	<!-- 					<div class="content-right"> -->
+	<!-- 						<a href="#">Xem tất cả sản phẩm</a> -->
+	<!-- 					</div> -->
 					</div>
 					
 					<div class="box-content">
 						<table class="tbl">
 							<% flag=0;
 							for(int i=0;i<n;i++){
-								if(flag==10) break;
+								if(flag==12) break;
 								sanphambean sp=dssp.get(i);
 								if(sp.getMaloai().equals("camerafullcolor")){ flag++;%>
 								<tr>
@@ -458,8 +437,7 @@
 										<div style="background-color: white; border: 1px solid #E7E7DE">
 											<div>
 												<img width="200px" src="<%=sp.getAnh() %>"><br>	
-												<div style="width: 200px"><%=sp.getTensanpham() %></div> <br>
-												<div style="width: 200px">Giá: <%=sp.getGia() %></div>
+												<div style="width: 200px"><%=sp.getTensanpham() %></div>
 											</div>
 										</div>
 									</td>
@@ -470,8 +448,7 @@
 										<div style="background-color: white; border: 1px solid #E7E7DE">
 											<div>
 												<img width="200px" src="<%=sp.getAnh() %>"><br>	
-												<div style="width: 200px"><%=sp.getTensanpham() %></div> <br>
-												<div style="width: 200px">Giá: <%=sp.getGia() %></div>
+												<div style="width: 200px"><%=sp.getTensanpham() %></div>
 											</div>
 										</div>
 									</td>
@@ -483,8 +460,7 @@
 										<div style="background-color: white; border: 1px solid #E7E7DE">
 											<div>
 												<img width="200px" src="<%=sp.getAnh() %>"><br>	
-												<div style="width: 200px"><%=sp.getTensanpham() %></div> <br>
-												<div style="width: 200px">Giá: <%=sp.getGia() %></div>
+												<div style="width: 200px"><%=sp.getTensanpham() %></div>
 											</div>
 										</div>
 									</td>
@@ -496,8 +472,7 @@
 										<div style="background-color: white; border: 1px solid #E7E7DE">
 											<div>
 												<img width="200px" src="<%=sp.getAnh() %>"><br>	
-												<div style="width: 200px"><%=sp.getTensanpham() %></div> <br>
-												<div style="width: 200px">Giá: <%=sp.getGia() %></div>
+												<div style="width: 200px"><%=sp.getTensanpham() %></div>
 											</div>
 										</div>
 									</td>
@@ -509,13 +484,23 @@
 										<div style="background-color: white; border: 1px solid #E7E7DE">
 											<div>
 												<img width="200px" src="<%=sp.getAnh() %>"><br>	
-												<div style="width: 200px"><%=sp.getTensanpham() %></div> <br>
-												<div style="width: 200px">Giá: <%=sp.getGia() %></div>
+												<div style="width: 200px"><%=sp.getTensanpham() %></div>
 											</div>
 										</div>
 									</td>
 					      	 		<%} %>
-					      	 		
+					      	 		<%i++;
+					      	 		  if(i<n){
+					      	 			sp=dssp.get(i); flag++;%>
+					      	 		<td >
+										<div style="background-color: white; border: 1px solid #E7E7DE">
+											<div>
+												<img width="200px" src="<%=sp.getAnh() %>"><br>	
+												<div style="width: 200px"><%=sp.getTensanpham() %></div>
+											</div>
+										</div>
+									</td>
+					      	 		<%} %>
 								</tr>
 							<%}} %>
 						</table>
@@ -523,30 +508,29 @@
 				</div>
 				
 				<div id="content-mid-box">
-					<div class="box-title" >
-						<div class="content-left" >
+					<div class="box-title" style="background-color: #E01931; color: white; font-weight: bold; height: 50px;">
+						<div class="content-left" style="flex-wrap: wrap; align-content: center">
 							<img src="Images/cameraip.png">
 							ĐẦU GHI J-TECH
 						</div>
-						<div class="content-right">
-							<a href="#">Xem tất cả sản phẩm ➨</a>
-						</div>
+	<!-- 					<div class="content-right"> -->
+	<!-- 						<a href="#">Xem tất cả sản phẩm</a> -->
+	<!-- 					</div> -->
 					</div>
 					
 					<div class="box-content">
 						<table class="tbl">
 							<% flag=0;
 							for(int i=0;i<n;i++){
-								if(flag==5) break;
+								if(flag==12) break;
 								sanphambean sp=dssp.get(i);
 								if(sp.getMaloai().equals("daughi")){ flag++;%>
 								<tr>
 									<td >
-										<div style="background-color: white; border: 1px solid #E7E7DE; height: 200px;">
+										<div style="background-color: white; border: 1px solid #E7E7DE">
 											<div>
 												<img width="200px" src="<%=sp.getAnh() %>"><br>	
-												<div style="width: 200px"><%=sp.getTensanpham() %></div> <br>
-												<div style="width: 200px">Giá: <%=sp.getGia() %></div>
+												<div style="width: 200px"><%=sp.getTensanpham() %></div>
 											</div>
 										</div>
 									</td>
@@ -554,33 +538,7 @@
 					      	 		  if(i<n){
 					      	 			sp=dssp.get(i); flag++;%>
 					      	 		<td >
-										<div style="background-color: white; border: 1px solid #E7E7DE; height: 200px;">
-											<div>
-												<img width="200px" src="<%=sp.getAnh() %>"><br>	
-												<div style="width: 200px"><%=sp.getTensanpham() %></div> <br>
-												<div style="width: 200px">Giá: <%=sp.getGia() %></div>
-											</div>
-										</div>
-									</td>
-					      	 		<%} %>
-					      	 		<%i++;
-					      	 		  if(i<n){
-					      	 			sp=dssp.get(i); flag++;%>
-					      	 		<td >
-										<div style="background-color: white; border: 1px solid #E7E7DE; height: 200px;">
-											<div>
-												<img width="200px" src="<%=sp.getAnh() %>"><br>	
-												<div style="width: 200px"><%=sp.getTensanpham() %></div> <br>
-												<div style="width: 200px">Giá: <%=sp.getGia() %></div>
-											</div>
-										</div>
-									</td>
-					      	 		<%} %>
-					      	 		<%i++;
-					      	 		  if(i<n){
-					      	 			sp=dssp.get(i); flag++;%>
-					      	 		<td >
-										<div style="background-color: white; border: 1px solid #E7E7DE; height: 200px;">
+										<div style="background-color: white; border: 1px solid #E7E7DE">
 											<div>
 												<img width="200px" src="<%=sp.getAnh() %>"><br>	
 												<div style="width: 200px"><%=sp.getTensanpham() %></div>
@@ -592,7 +550,7 @@
 					      	 		  if(i<n){
 					      	 			sp=dssp.get(i); flag++;%>
 					      	 		<td >
-										<div style="background-color: white; border: 1px solid #E7E7DE; height: 200px;">
+										<div style="background-color: white; border: 1px solid #E7E7DE">
 											<div>
 												<img width="200px" src="<%=sp.getAnh() %>"><br>	
 												<div style="width: 200px"><%=sp.getTensanpham() %></div>
@@ -600,7 +558,42 @@
 										</div>
 									</td>
 					      	 		<%} %>
-					      	 		
+					      	 		<%i++;
+					      	 		  if(i<n){
+					      	 			sp=dssp.get(i); flag++;%>
+					      	 		<td >
+										<div style="background-color: white; border: 1px solid #E7E7DE">
+											<div>
+												<img width="200px" src="<%=sp.getAnh() %>"><br>	
+												<div style="width: 200px"><%=sp.getTensanpham() %></div>
+											</div>
+										</div>
+									</td>
+					      	 		<%} %>
+					      	 		<%i++;
+					      	 		  if(i<n){
+					      	 			sp=dssp.get(i); flag++;%>
+					      	 		<td >
+										<div style="background-color: white; border: 1px solid #E7E7DE">
+											<div>
+												<img width="200px" src="<%=sp.getAnh() %>"><br>	
+												<div style="width: 200px"><%=sp.getTensanpham() %></div>
+											</div>
+										</div>
+									</td>
+					      	 		<%} %>
+					      	 		<%i++;
+					      	 		  if(i<n){
+					      	 			sp=dssp.get(i); flag++;%>
+					      	 		<td >
+										<div style="background-color: white; border: 1px solid #E7E7DE">
+											<div>
+												<img width="200px" src="<%=sp.getAnh() %>"><br>	
+												<div style="width: 200px"><%=sp.getTensanpham() %></div>
+											</div>
+										</div>
+									</td>
+					      	 		<%} %>
 								</tr>
 							<%}} %>
 						</table>
@@ -609,12 +602,10 @@
 			</div>
 		</div>
 					
-		<div id="footer" style="">
+		<div id="footer">
 				<br><hr>
-				<div style="display: flex; justify-content: center; margin-bottom: 15px">
-					<span>© 2022 CÔNG TY TNHH MTV VĂN QUÝ  - Thiết kế web: </span>
-					<span style="font-weight: bold">VĂN QUÝ</span> <br>
-				</div>			
+				<span>© 2022 CÔNG TY TNHH MTV VĂN QUÝ  - Thiết kế web: </span>
+				<span style="font-weight: bold">VĂN QUÝ</span>
 		</div>
 	</div>
 	

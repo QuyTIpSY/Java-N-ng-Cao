@@ -1,3 +1,4 @@
+<%@page import="bean.chitietsanphambean"%>
 <%@page import="bean.loaibean"%>
 <%@page import="java.awt.font.ImageGraphicAttribute"%>
 <%@page import="bean.sanphambean"%>
@@ -51,7 +52,7 @@
 		height: 50px;
 		display: flex;
 		justify-content: space-between;
-		background: #FFFFF7
+		background: #FFFFF7;
 	}
 	
 	.content-left{
@@ -75,6 +76,43 @@
 	
 	.box-content{
 		margin-top: 10px;
+	}
+	
+	#wp-content-content{
+		display: flex;
+	    justify-content: space-between;
+	}
+	
+	#content-title{
+		display: flex;
+	    justify-content: space-evenly;
+    	align-items: center;
+	}
+	
+	#wp-content-motasp{
+		
+	}
+	
+	table, th, td {
+	  border: 1px solid white;
+	  border-collapse: collapse;
+	}
+  	
+  	td{
+  		padding: 8px !important;
+   		width: 300px;
+  	}
+  	
+  	#thongsokythuat{
+  		    width: 750px;
+  	}
+  	
+  	tr:nth-last-child(odd){
+			background: #E7E7E7;
+	}
+	
+	tr:nth-last-child(even){
+			background: #FACA9B;
 	}
 
 </style>
@@ -152,9 +190,66 @@
 		</div>
 		
 		<div id="wp-content">
-			<div id="content-mid">
-						
+			<div id="wp-content-content">
+			<div id="content-title">
+				<%chitietsanphambean ctsp=(chitietsanphambean)request.getAttribute("ctsp");
+				String anh=(String)request.getAttribute("anh");
+				String tensp=(String)request.getAttribute("tensp");
+				long gia=(long)request.getAttribute("gia");%>
+				<div>
+					<img style="border-radius: 13px;" src="<%=anh%>">
+				</div>
+				<div style="font-weight: bold; font-size: 25px; color: #E01931;">
+					<div ><%=tensp %></div>
+					<div><%=gia %></div>
+				</div>
+				
 			</div>
+			
+			<div id="thongsokythuat">
+				<%if(ctsp.getChitietmaloai().equals("cameraip_than4mp")){%>
+					<table>
+						<tr> <div style="font-weight: bold; font-size: 25px; color: #44BBFF;">THÔNG SỐ SẢN PHẨM</div> </tr>
+						<tr>
+							<td><strong>Độ phân giải / Công nghệ nén video</strong>></td>
+							<td> <%=ctsp.getDophangiai_congnghenenvideo() %></td>
+						</tr>
+						<tr>
+							<td><strong>Ghi Âm</strong>></td>
+							<td> <%=ctsp.getGhiam() %></td>
+						</tr>
+						<tr>
+							<td><strong>Gởi tin nhắn cảnh báo đến điện thoại</strong>></td>
+							<td> <%=ctsp.getGoismscanhbao() %></td>
+						</tr>
+						<tr>
+							<td><strong>Face ID</strong>></td>
+							<td> <%=ctsp.getNhandienkhuonmat() %></td>
+						</tr>
+						<tr>
+							<td><strong>Human Detect</strong>></td>
+							<td> <%=ctsp.getPhathienconnguoi() %></td>
+						</tr>
+						<tr>
+							<td><strong>Đèn hồng ngoại / Ống kính / Nguồn</strong>></td>
+							<td> <%=ctsp.getDophangiai_congnghenenvideo() %></td>
+						</tr>
+						<tr>
+							<td><strong>Kết nối đầu ghi / Kết nối User</strong>></td>
+							<td> <%=ctsp.getKetnoidaughi_ketnoiuser() %></td>
+						</tr>
+						<tr>
+							<td><strong>Chất liệu vỏ / Kích thước (mm)</strong>></td>
+							<td> <%=ctsp.getChatlieuvo_kichthuoc() %></td>
+						</tr>
+					</table>
+				<%} %>
+			</div>
+		</div>
+		<div id="wp-content-motasp">
+			<div>MÔ TẢ SẢN PHẨM</div><hr>
+			<div ><%=ctsp.getMota() %></div> 
+		</div>
 		</div>
 					
 		<div id="footer" style="">

@@ -196,7 +196,7 @@
 									<td >
 										<div style="background-color: white; border: 1px solid #E7E7DE">
 											<div>
-												<a href="chitietsanphamController?msp=<%=sp.getMasanpham()%>"><img width="200px" src="<%=sp.getAnh() %>"></a><br>	
+												<a href="chitietsanphamController?msp=<%=sp.getMasanpham()%>&anh=<%=sp.getAnh()%>&tensp=<%=sp.getTensanpham()%>&gia=<%=sp.getGia()%>"><img width="200px" src="<%=sp.getAnh() %>"></a><br>	
 												<a style="text-decoration: none;" href="chitietsanphamController?msp=<%=sp.getMasanpham()%>"><div style="width: 200px; padding-left: 5px"><%=sp.getTensanpham() %></div></a> <br>
 												<div style="width: 200px; padding-left: 5px; font-weight: bold; color: red;">Giá: <%=sp.getGia() %> VNĐ</div>
 											</div>

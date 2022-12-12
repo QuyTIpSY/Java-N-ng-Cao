@@ -11,7 +11,9 @@ import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
 import bean.chitietsanphambean;
+import bean.sanphambean;
 import bo.chitietsanphambo;
+import bo.sanphambo;
 
 /**
  * Servlet implementation class chitietsanphamController
@@ -33,12 +35,18 @@ public class chitietsanphamController extends HttpServlet {
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		int msp=Integer.parseInt(request.getParameter("msp"));
-		HttpSession session=request.getSession();
+		String anh=request.getParameter("anh");
+		String tensp=request.getParameter("tensp");
+		long gia=Long.parseLong(request.getParameter("gia"));
+		
 		
 		chitietsanphambo ctspbo=new chitietsanphambo();
 		chitietsanphambean ctsp=ctspbo.ctsp(msp);
 		
 		request.setAttribute("ctsp", ctsp);
+		request.setAttribute("anh", anh);
+		request.setAttribute("tensp", tensp);
+		request.setAttribute("gia", gia);
 		
 		RequestDispatcher rd=request.getRequestDispatcher("chitietsanpham.jsp");
 		rd.forward(request, response);

@@ -57,7 +57,6 @@
 			 		</td>
  		
  		
- 		
  		<td width="200" valign="top" class="form-control"> 
  			 <form action="htsach.jsp" method="post">
 				  <input class="form-control" name="txttk" type="text" value="" placeholder="Nhap tt"> <br>

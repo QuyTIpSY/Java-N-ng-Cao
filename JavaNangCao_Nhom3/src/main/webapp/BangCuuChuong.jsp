@@ -22,8 +22,8 @@
 			background: #FF99FF;
 			color: #006600;
 		}
-		.table.table-striped td:nth-child(even){
-			background: #FF6699;
+		tr:nth-last-child(even){
+			background: white;
 		}
 	</style>
 
